@@ -5,23 +5,19 @@ function App() {
   const [number1, setNumber1] = useState();
   const [number2, setNumber2] = useState();
   const [result, setResult] = useState();
-  const [error, setError] = useState();
 
   const addValues = (e) => {
     e.preventDefault();
     const result = number1 + number2;
     if (!isNaN(result)) {
-      setError();
       setResult(number1 + number2);
-    } else {
-      setError("Invalid values");
     }
   };
 
   return (
     <div className="App">
       <div className="card">
-        <form>
+        <form onSubmit={addValues}>
           <h3 className="text">Sum Calculator</h3>
           <div className="input-group">
             <label htmlFor="number1" className="label">
@@ -51,11 +47,10 @@ function App() {
               onChange={(e) => setNumber2(parseInt(e.target.value))}
             />
           </div>
-          <button className="btn" onClick={addValues}>
+          <button className="btn" type="submit">
             Submit
           </button>
 
-          <p className="error">{error}</p>
           <h5 className="text">Your sum is: {result}</h5>
         </form>
       </div>
