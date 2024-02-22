@@ -11,8 +11,20 @@
 }
 
 .card {
-  padding: 20px 30px;
-  border: 1px solid gray;
+  padding: 20px 40px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(160, 160, 160, 0.2), 0 6px 20px 0 rgb(207, 201, 201)
+}
+
+.select-group {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+select {
+  /* font-size: 20px; */
+  padding: 5px 10px;
+  width: 100%;
 }
 
 .input-group {
@@ -30,6 +42,25 @@
   padding: 5px 10px;
 }
 
+.operator-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* .operator-btn button{
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: blue;
+  color: white;
+  border: none;
+  flex: 1;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+} */
+
 .btn {
   margin-top: 20px;
   background-color: blue;
@@ -42,6 +73,7 @@
 
 .error {
   color: red;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
 }
+
