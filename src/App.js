@@ -7,8 +7,7 @@ function App() {
   const [result, setResult] = useState();
   const [error, setError] = useState();
 
-  const addValues = (e) => {
-    e.preventDefault();
+  const addValues = () => {
     const result = number1 + number2;
     if (!isNaN(result)) {
       setError();
