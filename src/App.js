@@ -105,14 +105,17 @@ function App() {
           </label>
           <input
             type="number"
-            inputMode="numeric"
             id="number1"
             className="input"
-            pattern="[/d]*"
             placeholder="Enter number 1 value"
+            onKeyDown={(event) => {
+              if (!/[0-9\b]/.test(event.key) && event.key !== "Backspace") {
+                event.preventDefault();
+              }
+            }}
             onChange={(e) => setNumber1(parseFloat(e.target.value))}
           />
-          <p className="error">{errors?.number1}</p>
+          <span className="error">{errors?.number1}</span>
         </div>
 
         {/* number 2 input field */}
@@ -122,12 +125,18 @@ function App() {
           </label>
           <input
             type="number"
-            id="number1"
+            id="number2"
+            inputMode="numeric"
             className="input"
             placeholder="Enter number 2 value"
+            onKeyDown={(event) => {
+              if (!/[0-9\b]/.test(event.key) && event.key !== "Backspace") {
+                event.preventDefault();
+              }
+            }}
             onChange={(e) => setNumber2(parseFloat(e.target.value))}
           />
-          <p className="error">{errors?.number2}</p>
+          <span className="error">{errors?.number2}</span>
         </div>
 
         {/* operator select field */}
@@ -144,13 +153,6 @@ function App() {
             <option value="/">divide(÷)</option>
           </select>
         </div>
-
-        {/* <div className="operator-btn">
-          <button onClick={addValues}>+</button>
-          <button onClick={subtractValues}>-</button>
-          <button onClick={multiplyValues}>x</button>
-          <button onClick={divisionValues}>÷</button>
-        </div> */}
 
         <button className="btn" type="submit" onClick={calculate}>
           Submit
