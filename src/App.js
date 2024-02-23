@@ -30,7 +30,8 @@ function App() {
   const addValues = () => {
     const isValidNumber = isValidNumbers();
     if (isValidNumber) {
-      setResult(number1 + number2);
+      let value = number1 + number2;
+      setValueToResult(value);
     }
   };
 
@@ -42,8 +43,7 @@ function App() {
         setError({ number1: "number1 must be greater" });
       } else {
         let value = number1 - number2;
-
-        setResult(Number.isInteger(value) ? value : value.toFixed(2));
+        setValueToResult(value);
       }
     }
   };
@@ -52,7 +52,8 @@ function App() {
   const multiplyValues = () => {
     const isValidNumber = isValidNumbers();
     if (isValidNumber) {
-      setResult(number1 * number2);
+      let value = number1 * number2;
+      setValueToResult(value);
     }
   };
 
@@ -63,7 +64,8 @@ function App() {
       if (number2 === 0) {
         setError({ number2: "number2 must not be 0" });
       } else {
-        setResult((number1 / number2).toFixed(2));
+        let value = number1 / number2;
+        setValueToResult(value);
       }
     }
   };
@@ -93,6 +95,11 @@ function App() {
   // assign operator
   const chooseOperator = (e) => {
     setOperator(e.target.value);
+  };
+
+  // format result value if decimal
+  const setValueToResult = (value) => {
+    setResult(Number.isInteger(value) ? value : value.toFixed(2));
   };
 
   return (
