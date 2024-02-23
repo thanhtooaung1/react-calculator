@@ -41,7 +41,9 @@ function App() {
       if (number1 < number2) {
         setError({ number1: "number1 must be greater" });
       } else {
-        setResult(number1 - number2);
+        let value = number1 - number2;
+
+        setResult(Number.isInteger(value) ? value : value.toFixed(2));
       }
     }
   };
@@ -109,7 +111,7 @@ function App() {
             className="input"
             placeholder="Enter number 1 value"
             onKeyDown={(event) => {
-              if (!/[0-9\b]/.test(event.key) && event.key !== "Backspace") {
+              if (!/^\d*\.?\d*$/.test(event.key) && event.key !== "Backspace") {
                 event.preventDefault();
               }
             }}
@@ -130,7 +132,7 @@ function App() {
             className="input"
             placeholder="Enter number 2 value"
             onKeyDown={(event) => {
-              if (!/[0-9\b]/.test(event.key) && event.key !== "Backspace") {
+              if (!/^\d*\.?\d*$/.test(event.key) && event.key !== "Backspace") {
                 event.preventDefault();
               }
             }}
